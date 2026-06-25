@@ -116,6 +116,9 @@
 .buttons {
 	width: 100%;
 	min-width: 0;
+	aspect-ratio: 3 / 4;
+	display: flex;
+	flex-direction: column;
 	box-shadow: 15px 15px 35px rgba(0, 0, 0, 0.1);
 	cursor: pointer;
 	background: #ffffff;
@@ -199,9 +202,10 @@
 }
 
 .overflow {
+	flex: 1 1 auto;
+	min-height: 0;
 	overflow: hidden;
 	width: 100%;
-	aspect-ratio: 4 / 3;
 }
 .titlebox{
 	background-color:#7cd5dc;
@@ -211,6 +215,10 @@
 	padding:10px;
 }
 .padding-1{
+	flex: 0 0 64px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	padding-top: 1rem;
     padding-bottom: 1rem;
 }
