@@ -106,19 +106,19 @@
 }
 
 .view {
-
 	display: grid;
-	grid-template-columns: repeat(3, 400px);
-	place-content: center;
-	justify-items: center;
-	margin-bottom: 40px;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 32px 24px;
+	width: min(1200px, calc(100% - 48px));
+	margin: 70px auto 40px;
 }
 
 .buttons {
-	margin-top: 70px;
-	width: 300px;
+	width: 100%;
+	min-width: 0;
 	box-shadow: 15px 15px 35px rgba(0, 0, 0, 0.1);
 	cursor: pointer;
+	background: #ffffff;
 }
 
 .formview {
@@ -172,13 +172,15 @@
 
 .view a {
 	color: black;
-
+	display: block;
+	width: 100%;
 }
 
 .img-event {
-	width: inherit;
-	height: 300px;
+	width: 100%;
+	height: 100%;
 	object-fit: cover;
+	display: block;
 }
 
 
@@ -199,7 +201,7 @@
 .overflow {
 	overflow: hidden;
 	width: 100%;
-	height: 300px;
+	aspect-ratio: 4 / 3;
 }
 .titlebox{
 	background-color:#7cd5dc;
@@ -211,4 +213,32 @@
 .padding-1{
 	padding-top: 1rem;
     padding-bottom: 1rem;
+}
+
+.padding-1 span {
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding: 0 12px;
+}
+
+@media (max-width: 1199px) {
+	.view {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 899px) {
+	.view {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 575px) {
+	.view {
+		grid-template-columns: 1fr;
+		width: min(360px, calc(100% - 32px));
+		gap: 24px;
+	}
 }

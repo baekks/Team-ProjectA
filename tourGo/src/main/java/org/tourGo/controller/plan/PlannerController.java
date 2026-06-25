@@ -79,7 +79,7 @@ public class PlannerController {
 
 	@GetMapping() // 여행 상세 일정 보는 화면
 	public String plan(Model model, @AuthenticationPrincipal PrincipalDetail principal,
-			@PageableDefault(page = 0, size = 3, sort = "plannerNo", direction = Sort.Direction.DESC) Pageable pageable,
+			@PageableDefault(page = 0, size = 12, sort = "plannerNo", direction = Sort.Direction.DESC) Pageable pageable,
 			String searchKeyword) {
 
 		Optional<User> _user = null;
@@ -114,7 +114,7 @@ public class PlannerController {
 
 	@GetMapping("/plannerallview")
 	public String planallview(Model model,
-			@PageableDefault(page = 0, size = 3, sort = "plannerNo", direction = Direction.DESC) Pageable pageable,
+			@PageableDefault(page = 0, size = 12, sort = "plannerNo", direction = Direction.DESC) Pageable pageable,
 			String searchKeyword) {
 		
 		Page<Planner> list = null;
