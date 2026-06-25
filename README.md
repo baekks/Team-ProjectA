@@ -30,6 +30,46 @@ Front-End : HTML5, CSS3, JavaScript, JQuery, Ajax
 Back-End : Spring boot, maven, Spring-Data-JPA, Spring-Security
 DB : MYSQL 8.0 workbench
 배포 : AWS EC2 (Amazon Linux)
+
+## 로컬 실행 방법
+
+현재 로컬 실행 기준은 Java 17 이상, Docker, Maven Wrapper입니다.
+
+```bash
+cd tourGo
+docker compose up -d mysql
+./mvnw spring-boot:run
+```
+
+브라우저에서 `http://localhost:3000`으로 접속하면 됩니다. 기본 DB는 Docker Compose가 생성하는 MySQL 8.0 `project` 데이터베이스를 사용하며, 계정은 `tps` / `aA!123456`입니다.
+
+다른 DB를 사용하려면 아래 환경변수를 지정해서 실행할 수 있습니다.
+
+```bash
+DB_URL="jdbc:mysql://localhost:3306/project?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul" \
+DB_USERNAME="tps" \
+DB_PASSWORD="aA!123456" \
+./mvnw spring-boot:run
+```
+
+관광지 데이터는 한국관광공사 국문 관광정보서비스 API 키가 필요합니다. 공공데이터포털에서 `한국관광공사_국문 관광정보 서비스_GW` 활용 신청 후 받은 일반 인증키를 `TOUR_API_SERVICE_KEY`로 넣어 실행합니다.
+
+```bash
+TOUR_API_SERVICE_KEY="발급받은_일반_인증키" ./mvnw spring-boot:run
+```
+
+앱 실행 후 아래 URL을 한 번 호출하면 관광지 데이터가 DB에 저장됩니다.
+
+```bash
+curl http://localhost:3000/dev/destinations/import
+```
+
+특정 지역만 넣고 싶다면 지역 코드를 붙여 호출합니다.
+
+```bash
+curl http://localhost:3000/dev/destinations/import/1
+```
+
 ## 스크린샷
 
 ## 구동 화면

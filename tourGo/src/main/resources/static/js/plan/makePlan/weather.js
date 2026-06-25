@@ -32,8 +32,10 @@ var WeatherslideIndex = 1;
         //화살표 부분을 마우스 일시 중지/재개에 유지하려면 아래 줄의 주석 처리를 제거하세요
         // slideshowContainer = document.getElementsByClassName('Weather-slideshow-container')[0];
 
-        slideshowContainer.addEventListener('mouseenter', pause)
-        slideshowContainer.addEventListener('mouseleave', resume)
+        if (slideshowContainer) {
+            slideshowContainer.addEventListener('mouseenter', pause)
+            slideshowContainer.addEventListener('mouseleave', resume)
+        }
     })
 
     // 다음 그리고 이전 컨트롤
@@ -71,6 +73,9 @@ var WeatherslideIndex = 1;
         var i;
         var slides = document.getElementsByClassName("Weather-Slides");
         var Weatherdots = document.getElementsByClassName("Weather-dot");
+        if (slides.length === 0) {
+            return;
+        }
         if (n > slides.length) {
             WeatherslideIndex = 1
         }
@@ -84,7 +89,9 @@ var WeatherslideIndex = 1;
             Weatherdots[i].className = Weatherdots[i].className.replace(" active", "");
         }
         slides[WeatherslideIndex - 1].style.display = "block";
-        Weatherdots[WeatherslideIndex - 1].className += " active";
+        if (Weatherdots.length > 0 && Weatherdots[WeatherslideIndex - 1]) {
+            Weatherdots[WeatherslideIndex - 1].className += " active";
+        }
     }
 
     pause = () => {

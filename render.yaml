@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: tourgo
+    runtime: docker
+    rootDir: tourGo
+    plan: free
+    healthCheckPath: /main_view
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: render
+      - key: DB_URL
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: TOUR_API_SERVICE_KEY
+        sync: false
+      - key: FILE_UPLOAD_PATH
+        value: /tmp/tourgo/uploads

@@ -11,14 +11,16 @@
 <main layout:fragment="content">
 
 	<script>
-		window.addEventListener("DOMContentLoaded", function () {
+			window.addEventListener("DOMContentLoaded", function () {
 
-			const button1El = document.getElementById("btn1");
-			button1El.addEventListener("click", function () {
-				codefty.popup.open("/plan/makeplan2", "새 일정 만들기", 600, 590, true);
+				const button1El = document.getElementById("btn1");
+				if (button1El) {
+					button1El.addEventListener("click", function () {
+						codefty.popup.open("/plan/makeplan2", "새 일정 만들기", 600, 590, true);
+					});
+				}
+
 			});
-
-		});
 
 		function btn() {
 			alert('로그인 후 이용가능합니다.');

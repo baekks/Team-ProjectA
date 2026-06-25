@@ -1,0 +1,7 @@
+.git
+.gitignore
+target
+bin
+*.log
+.DS_Store
+docker-compose.yml
