@@ -137,7 +137,7 @@ public class PlannerController {
 		model.addAttribute("startPage", startPage);
 		model.addAttribute("endPage", endPage);
 
-		return "plan/plannerallView";
+		return "plan/plannerallview";
 	}
 
 	// 아이디값확인해서 아이디일치하지않으면 예외처리하기!!
@@ -322,7 +322,7 @@ public class PlannerController {
 		}
 		
 		
-		return "plan/plannerallView_page";
+		return "plan/plannerallview_page";
 	}
 
 	@GetMapping("/weather")
