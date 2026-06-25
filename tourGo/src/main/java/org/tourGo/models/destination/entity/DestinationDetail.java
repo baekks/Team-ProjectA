@@ -21,7 +21,6 @@ import lombok.NoArgsConstructor;
 public class DestinationDetail extends BaseEntity {
 	
 	@Id 
-	@GeneratedValue
 	private Long destinationNo;// db테이블 증감번호
 
 	@Column(nullable = false)
